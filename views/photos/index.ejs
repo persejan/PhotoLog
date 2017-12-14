@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Welcome to PhotoLog</h1>
+            <p>View all kinds of photos from all over the world.</p>
+            <p>
+                <a class="btn btn-primary btn-large" href="/photos/new">Add a new photo!</a>
+            </p>
+        </div>
+   
+        <hr>
+   
+        <div class="row text-center" style="display:flex; flex-wrap: wrap">
+            <% photos.forEach(function(photo){ %>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail">
+                        <a href="/photos/<%= photo._id %>">
+                            <img src="<%= photo.image %>">
+                        </a>
+                        <h4><%= photo.name %></h4>
+                        <a href="/photos/<%= photo._id %>" class="btn btn-sm btn-default">More</a>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+    
+<% include ../partials/footer %>
